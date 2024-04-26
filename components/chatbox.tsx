@@ -7,6 +7,7 @@ import { Bot, SendHorizonal, User } from "lucide-react";
 import { PaperPlaneRight } from "@phosphor-icons/react";
 import Link from "next/link";
 import { TreeVisualization } from "./tree";
+import Image from "next/image";
 
 export function ChatBox() {
 
@@ -25,6 +26,7 @@ export function ChatBox() {
 
 
   const handleSubmit = async (event) => {
+    setCurac("");
     event.preventDefault();
     if (!input.trim()) return;
   
@@ -57,6 +59,7 @@ export function ChatBox() {
         })
       });
       const { response: {response: reply, action_id: actid} } = await response.json(); // Extract 'response' field from JSON
+      setCurac("");
       setCurac(actid);
     const newAssistantMessage = { id: messages.length + 2, role: "assistant", content: reply };
       setMessages((prevMessages) => [...prevMessages, newAssistantMessage]);
@@ -120,15 +123,15 @@ export function ChatBox() {
             <div
               key={m.id}
               className="flex flex-row md:gap-4 gap-2
-            bg-white/60 backdrop-blur-lg rounded-lg shadow-md border border-neutral-100 p-3"
+            bg-white/60 backdrop-blur-lg rounded-lg shadow-md border border-neutral-100 p-4"
             >
               {m.role == "user" ? (
-                <div className="w-[24px] h-[24px]">
-                  <User size={24} color="black" />
+                <div className="w-[44px] h-[44px] min-w-max example-style overflow-hidden rounded-full">
+                  <Image width={44} height={44} src={'/us.jpg'} alt="us" />
                 </div>
               ) : m.role == "assistant" ? (
-                <div className="w-[24px] h-[24px]">
-                  <Bot size={24} color="black" />
+                <div className="w-[44px] h-[44px] min-w-max example-style overflow-hidden rounded-full">
+                  <Image width={44} height={44} src={'/yay.jpg'} alt="bot" />
                 </div>
               ) : (
                 "???"

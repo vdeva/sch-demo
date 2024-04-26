@@ -197,11 +197,11 @@ export const TreeVisualization = ({ actionId }) => {
 
     const findPath = (node, id, trail = []) => {
       if (node.attributes && node.attributes.id === id) {
-        return [...trail, node.name];
+        return [...trail, node];
       }
       if (node.children) {
         for (let child of node.children) {
-          const result = findPath(child, id, [...trail, node.name]);
+          const result = findPath(child, id, [...trail, node]);
           if (result) return result;
         }
       }
@@ -239,20 +239,55 @@ export const TreeVisualization = ({ actionId }) => {
     }
   }, [path]);
 
+  // Function to render the action node if exists
+  const renderActionNode = (action) => {
+    if (action && action.attributes) {
+      return (
+        <div className="flex flex-col items-center">
+          <div className="h-6 w-1 bg-slate-400/60"></div>
+          <li key={action.attributes.id} className="rounded-lg shadow-xl px-4 py-3 text-xs max-2-[100px] border-2 border-purple-400/90">
+            {action.attributes.action}
+          </li>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div ref={containerRef} className="py-12 px-4 max-h-screen overflow-y-scroll">
       <ul className="flex flex-col items-center">
         {path.map((node, index) => (
           <div key={index} className="flex flex-col items-center">
-          {index != 0 && <div className="h-6 w-1 bg-slate-200"></div>}
-          <li className={`rounded-lg shadow-md px-4 py-3 text-xs max-2-[100px]
-          border-2 
-          ${node == 'Yes' ? 'border-emerald-300' :
-            node == 'No' ? 'border-red-300' :
+          {index != 0 && <div className="h-6 w-1 bg-slate-400/60"></div>}
+          <li className={`rounded-lg shadow-xl px-4 py-3 text-xs max-2-[100px]
+          border-2  example-style
+          ${node.name == 'Yes' ? 'border-emerald-400/90' :
+            node.name == 'No' ? 'border-red-400/90' :
             'border-blue-200'
           }
-          `}>{node}</li>
+          `}
+          >{node.name}</li>
+          {index === path.length - 1 && renderActionNode(node)}
         </div>
+        ))}
+      </ul>
+    </div>
+  );
+
+
+  return (
+    <div ref={containerRef} className="py-12 px-4 max-h-screen overflow-y-scroll">
+      <ul className="flex flex-col items-center">
+        {path.map((node, index) => (
+          <div key={index} className="flex flex-col items-center">
+            {index !== 0 && <div className="h-6 w-1 bg-slate-200"></div>}
+            <li className={`rounded-lg shadow-md px-4 py-3 text-xs max-2-[100px] border-2  example-style ${node === 'Yes' ? 'border-emerald-300' : node === 'No' ? 'border-red-300' : 'border-blue-200'}`}>
+              {node.name}
+            </li>
+            {/* Render action node if exists */}
+            {index === path.length - 1 && renderActionNode(node)}
+          </div>
         ))}
       </ul>
     </div>
