@@ -25,11 +25,17 @@ const orgChart = {
                           children: [
                             {
                               name: "Yes",
-                              attributes: { action: "Assume needs proved", id: "1111" }
+                              attributes: {
+                                action: "Assume what needs to be proved, either under another name, by asserting a contested particular truth as a general truth, or by deriving all particular truths from a general truth.",
+                                id: "1111"
+                              }
                             },
                             {
                               name: "No",
-                              attributes: { action: "Check statements", id: "1110" }
+                              attributes: {
+                                action: "Check if some of the opponent's statements are not in contradiction with others, depending on the perspective from which they are considered.",
+                                id: "1110"
+                              }
                             }
                           ]
                         }
@@ -39,15 +45,21 @@ const orgChart = {
                       name: "No",
                       children: [
                         {
-                          name: "Can we use their statements against them?",
+                          name: "Can we use the opponent's statements against them?",
                           children: [
                             {
                               name: "Yes",
-                              attributes: { action: "Check statements", id: "1101" }
+                              attributes: {
+                                action: "Check if some of the opponent's statements are not in contradiction with others, depending on the perspective from which they are considered.",
+                                id: "1101"
+                              }
                             },
                             {
                               name: "No",
-                              attributes: { action: "Show impudence", id: "1100" }
+                              attributes: {
+                                action: "Show impudence. Anger the opponent, because in their fury, they are unable to judge correctly or see their own interest.",
+                                id: "1100"
+                              }
                             }
                           ]
                         }
@@ -61,7 +73,7 @@ const orgChart = {
               name: "No",
               children: [
                 {
-                  name: "Are the foundations of their thesis solid?",
+                  name: "Are the foundations of the opponent's thesis solid?",
                   children: [
                     {
                       name: "Yes",
@@ -73,15 +85,21 @@ const orgChart = {
                               name: "Yes",
                               children: [
                                 {
-                                  name: "Does associating with a truth lead to contradiction?",
+                                  name: "Does associating the thesis with a recognized truth lead to a contradiction?",
                                   children: [
                                     {
                                       name: "Yes",
-                                      attributes: { action: "Apagogue", id: "10111" }
+                                      attributes: {
+                                        action: "Apagogue - The art of deriving false conclusions: force the opponent's thesis to yield contradictory or general truths contradicting propositions not found in the thesis itself, thereby constructing an indirect refutation, an apagogue or reasoning by absurdity.",
+                                        id: "10111"
+                                      }
                                     },
                                     {
                                       name: "No",
-                                      attributes: { action: "Find example", id: "10110" }
+                                      attributes: {
+                                        action: "Find a contradictory example",
+                                        id: "10110"
+                                      }
                                     }
                                   ]
                                 }
@@ -91,21 +109,32 @@ const orgChart = {
                               name: "No",
                               children: [
                                 {
-                                  name: "Is the opponent in strength?",
+                                  name: "Is the opponent in a position of strength?",
                                   children: [
                                     {
                                       name: "Yes",
-                                      attributes: { action: "Diversion", id: "10101" }
+                                      attributes: {
+                                        action: "Diversion",
+                                        id: "10101"
+                                      }
                                     },
                                     {
                                       name: "No",
                                       children: [
                                         {
-                                          name: "Can we prove foundations false?",
+                                          name: "Can we demonstrate that the foundations are false?",
                                           children: [
                                             {
                                               name: "Yes",
-                                              attributes: { action: "Assume needs proved", id: "101001" }
+                                              children: [
+                                                {
+                                                  name: "Assume what needs to be proved, either under another name, by asserting a contested particular truth as a general truth, or by deriving all particular truths from a general truth.",
+                                                  attributes: {
+                                                    action: "Assume what needs to be proved",
+                                                    id: "101001"
+                                                  }
+                                                }
+                                              ]
                                             },
                                             {
                                               name: "No",
@@ -115,11 +144,17 @@ const orgChart = {
                                                   children: [
                                                     {
                                                       name: "Yes",
-                                                      attributes: { action: "Strengthen attack", id: "1010001" }
+                                                      attributes: {
+                                                        action: "Strengthen the attack - Assume what needs to be proved, either under another name, by asserting a contested particular truth as a general truth, or by deriving all particular truths from a general truth.",
+                                                        id: "1010001"
+                                                      }
                                                     },
                                                     {
                                                       name: "No",
-                                                      attributes: { action: "Non causa pro causa", id: "1010000" }
+                                                      attributes: {
+                                                        action: "Mischievous Trick - Fallacy of non causa pro causa - present a reason as though it were a cause: when the opponent has answered several questions unfavorably, yet declare that the deduction we wanted to achieve is proven.",
+                                                        id: "1010000"
+                                                      }
                                                     }
                                                   ]
                                                 }
@@ -139,7 +174,10 @@ const orgChart = {
                     },
                     {
                       name: "No",
-                      attributes: { action: "Last-Resort Diversion", id: "100" }
+                      attributes: {
+                        action: "Last-Resort Diversion - Use diversion as a last resort if defeat seems imminent. Talk about something entirely different as if it were part of the debated subject, with varying degrees of discretion or impudence.",
+                        id: "100"
+                      }
                     }
                   ]
                 }
@@ -159,15 +197,21 @@ const orgChart = {
               name: "Yes",
               children: [
                 {
-                  name: "Does the thesis contradict previous statements?",
+                  name: "Does the thesis contradict previous statements of the opponent (ad hominem)?",
                   children: [
                     {
                       name: "Yes",
-                      attributes: { action: "Ad hominem", id: "011" }
+                      attributes: {
+                        action: "Ad hominem argument to highlight contradictions",
+                        id: "011"
+                      }
                     },
                     {
                       name: "No",
-                      attributes: { action: "Apagogue", id: "010" }
+                      attributes: {
+                        action: "The art of deriving false conclusions: force the opponent's thesis to yield contradictory or general truths contradicting propositions not found in the thesis itself, thereby constructing an indirect refutation, an apagogue or reasoning by absurdity.",
+                        id: "010"
+                      }
                     }
                   ]
                 }
@@ -175,7 +219,10 @@ const orgChart = {
             },
             {
               name: "No",
-              attributes: { action: "Stretch claim", id: "00" }
+              attributes: {
+                action: "Stretch the opponent's claim beyond its natural limits, interpret it as broadly as possible, take it in the widest sense, and exaggerate. At the same time, reduce your own claim to the strictest possible sense: the more general a claim becomes, the more vulnerable it is to attack.",
+                id: "00"
+              }
             }
           ]
         }
